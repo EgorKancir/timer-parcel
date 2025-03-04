@@ -118,7 +118,66 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
+// 1
+var hoursDispaly = document.getElementById("hours-timer-box");
+var hoursBtn = document.getElementById("hours-timer-start");
+var hoursTimer;
+hoursBtn.addEventListener("click", function () {
+  var totalTime = 1800;
+  var halfTime = totalTime / 2;
+  if (totalTime > 0) {
+    clearInterval(hoursTimer);
+    hoursTimer = setInterval(function () {
+      if (totalTime <= 0) {
+        clearInterval(hoursTimer);
+        hoursDispaly.textContent = "The timer is over!";
+      } else {
+        if (totalTime === halfTime) {
+          alert("Passed exactly the melt of time!");
+        }
+        totalTime--;
+        var hours = Math.floor(totalTime / 3600);
+        var min = Math.floor(totalTime / 60);
+        var sec = totalTime % 60;
+        hoursDispaly.textContent = "".concat(String(hours).padStart(2, '0'), ":").concat(String(min).padStart(2, '0'), ":").concat(String(sec).padStart(2, '0'));
+      }
+    }, 1000);
+  }
+});
 
+// 2
+var secTimerBox = document.querySelector(".timer-sec");
+var secondsDispaly = document.getElementById("seconds-timer-box");
+var secondsBtn = document.getElementById("seconds-timer-start");
+var secondsTimer;
+secondsBtn.addEventListener("click", function () {
+  secondsBtn.disabled = true;
+  var totalTime = 30000;
+  var halfTime = totalTime / 2;
+  if (totalTime > 0) {
+    clearInterval(secondsTimer);
+    secTimerBox.classList.remove("end");
+    secondsTimer = setInterval(function () {
+      if (totalTime <= 0) {
+        clearInterval(secondsTimer);
+        secondsBtn.disabled = false;
+        secondsDispaly.textContent = "The timer is over!";
+      } else {
+        if (totalTime === halfTime) {
+          secTimerBox.classList.add("middle");
+        }
+        if (totalTime === halfTime * 0.30) {
+          secTimerBox.classList.remove("middle");
+          secTimerBox.classList.add("end");
+        }
+        totalTime -= 10;
+        var ms = totalTime % 1000;
+        var sec = Math.floor(totalTime / 1000);
+        secondsDispaly.textContent = "".concat(String(sec).padStart(2, '0'), ".").concat(String(ms).padStart(3, '0'));
+      }
+    }, 10);
+  }
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -144,7 +203,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49599" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57939" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
