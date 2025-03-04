@@ -7,6 +7,12 @@ body {
     flex-direction: column;
     padding: 40px 0;
 }
+.title {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 500;
+    margin: 0;
+}
 .timer {
     display: flex;
     justify-content: center;
