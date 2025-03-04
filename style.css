@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    background-color: rgb(179, 171, 255);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+}
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    border: 2px solid rgb(21, 41, 255);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 50px;
+    background-color: rgb(110, 163, 255);
+}
+.timer-title,
+.timer-box {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+    margin: 0;
+}
+.timer-discription {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(210, 21, 21);
+    margin: 0;
+}
+.timer-btn {
+    background-color: rgb(57, 50, 255);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.timer-btn:hover, 
+.timer-btn:focus {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.timer-sec {
+    background-color: rgb(102, 230, 102);
+    transition: all 0.5s ease-in-out;
+}
+.timer-sec.middle {
+    background-color: rgb(215, 222, 96);
+}
+.timer-sec.end {
+    background-color: red;
+}
